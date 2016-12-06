@@ -26,10 +26,12 @@ app.config['UPLOADED_FASTAFILES_ALLOW'] = set(['fasta', 'fsa_nt', 'fsa'])
 files = UploadSet('fastafiles')
 configure_uploads(app, (files,))
 
-
+logging.basicConfig(filename=SCRIPT_DIRECTORY + 'controllerdebug.log',level=logging.INFO)
 
 @app.route('/', methods =['POST', 'GET'])
 def uploadFiles():
+
+    logging.info('In uploadFiles, request is' + str(request))
 
     if request.method == 'POST':
         global OUTPUT, I, FORMAT, VERBOSITY, PERC_ID, PERC_LEN
@@ -105,6 +107,7 @@ def uploadFiles():
             return redirect(url_for('straightDownload'))
 
         return redirect(url_for('getResults'))
+    logging.info('Method is GET')
     return render_template('controller.html')
 
 
