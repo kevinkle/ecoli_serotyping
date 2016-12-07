@@ -70,7 +70,7 @@
     <h1 class="header1">
         <em>E. coli</em> Tools
     </h1>
-    <form action="/superphy/controller/" method="POST" enctype="multipart/form-data"
+    <form action="{{ url_for('uploadFiles') }}" method="POST" enctype="multipart/form-data"
           class="uploadform" id="upload-form">
         <div>
             <label for="fileElement">Upload a single or multiple files</label><br>
