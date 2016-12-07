@@ -92,7 +92,7 @@ def uploadFiles():
             shutil.rmtree(SCRIPT_DIRECTORY + '../../temp/Uploads/temp_dir' + str(I))
 
         os.makedirs(SCRIPT_DIRECTORY + '../../temp/Uploads/temp_dir' + str(I))
-        logging.info('Directory')
+        logging.info('Starting process')
         for file in resultFiles:
             files.save(file,'temp_dir'+ str(I))
 
